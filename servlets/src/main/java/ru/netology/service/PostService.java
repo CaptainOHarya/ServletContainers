@@ -21,7 +21,7 @@ public class PostService {
         return repository.getById(id).orElseThrow(NotFoundException::new);
     }
 
-    public synchronized Post save(Post post) {
+    public Post save(Post post) {
         return repository.save(post);
     }
 
