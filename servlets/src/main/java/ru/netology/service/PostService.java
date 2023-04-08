@@ -22,16 +22,7 @@ public class PostService {
     }
 
     public synchronized Post save(Post post) {
-        if (post.getId() == 0) {
-            post.setId(repository.getNewId());
-            return repository.save(post);
-        }
-        if (repository.isContainsId(post.getId())) {
-            return repository.change(post);
-        }
-        throw new NotFoundException("Post not found!!!");
-
-
+        return repository.save(post);
     }
 
     public void removeById(long id) {
